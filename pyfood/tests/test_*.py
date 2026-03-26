@@ -1,5 +1,5 @@
 import pytest
-from tests.conftest import pedidos
+from tests.conftest import pedidos, arquivo_log_temporario
 from app.validador import validar_pedido
 from app.calculos import calcular_total_com_desconto, dividir_conta
 from app.pagamento import finalizar_compra
@@ -9,6 +9,9 @@ def test_validar(pedidos):
 
 def test_calcular_total(pedidos):
     assert calcular_total_com_desconto(pedidos)
+
+def test_escrita_log(arquivo_log_temporario):
+    arquivo_log_temporario.write("Teste de log")
 
 def test_deve_falhar_ao_dividir_por_zero(pedidos):
     with pytest.raises(ZeroDivisionError):

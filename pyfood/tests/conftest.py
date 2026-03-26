@@ -10,7 +10,7 @@ import pytest
         "itens": 
         [
             {"nome": "Hamburguer", "preco": 15.00},
-            {"nome": "Refrigerante", "preco": 8.00}
+            {"nome": "Refrigerante", "preco": 4.00}
         ]
     },
     {
@@ -28,8 +28,5 @@ def pedidos(request):
 @pytest.fixture()
 def arquivo_log_temporario():
     arquivo = open("log.txt", "w") 
-
     yield arquivo 
-
     arquivo.close()
-
